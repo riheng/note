@@ -1,0 +1,104 @@
+Title         : Overfitting
+
+Author        : Riheng ZHU
+Affiliation   :  
+Email         : zrh0712@outlook.com
+
+Bibliography  : example.bib
+
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+~ Begin MainPanel
+
+# Introduction {#intro}
+**Overfitting** is the phenomenon (Figure [#fig-overfitting])where fitting the observed facts (data) well
+no longer indicates that we will get a decent out-of-sample error, and may 
+actually lead to the opposite effects. The model uses its additional degrees 
+of freedom to fit idiosyncrasies in the data (ex. noise). Overfitting can even
+happen when the hypothesis set contains only functions which are *far simpler* to the 
+target function, and so the plots thickens.
+
+~ Figure{ #fig-overfitting; caption:"Effects of overfitting" }
+![overfitting]
+~
+[overfitting]: images/overfitting.png "overfitting" { width:auto; max-width:45% }
+
+
+
+# Hazard of overfitting
+
+## When does overfitting occurs?
+Fours reasons for serious overfitting: Stochastic noise, deterministic noise,
+data size and excessive power.
+
+**Stochastic Noise** The stochastic noise is the data do not lie in the target
+function curve. 
+
+**Deterministic Noise** The deterministic noise is the part of the target function
+which cannot be modeled by the hypothesis. There are two basic difference between stochastic noise
+and deterministic noise:
+
+1. *depends on H*  \ \ \ The same data set will have different deterministic noise depending
+on which model we choose.
+2. *fixed for a given x*  \ \ \  If we generate the same data(x values), the deterministic 
+noise would not change, but the stochastic noise would.
+
+~ Figure {#fig-noise; caption:"Effects of stochastique noise and deterministic noise"}
+![noise]
+~
+[noise]: images/noise.png "noise" { width:auto; max-width:60% }
+
+*The bias-variance decomposition* is a useful tool for understanding how noise affects
+performances:
+~ Equation
+\mathbb{E}_{D}[E_{out}] = \sigma ^2 + bias + vars
+~
+where 
+
+* $\sigma^2$ is the variance of stochastic noise.
+* $bias$ is directly related to the deterministic noise in that it captures the
+model's inability to approximate f.
+* $vars$ is indirectly impacted by both noise, capturing a model's susceptibility
+to being led astray by noise.
+
+
+**Data Size** Overfitting is occurring for N in the shaded gray region because
+by choosing $H_{10}$ which is better $E_{in}$, and you get worse $E_{out}$ as 
+shown in Figure [#fig-dataSize].
+
+~ Figure {#fig-dataSize; caption:"Effects of dataSize for overfitting"}
+![DataSize]
+~
+[DataSize]: images/DataSize.png "DataSize" { width:auto; max-width:60% }
+
+**Excessive power** model complexity.
+
+## How to deal with overfitting?
+
+* *Start from the simple model*
+* *Data cleaning* / pruning  Possibly helps, but effect varies.
+    * data cleaning: correct the label
+    * data pruning: remove the example
+* *Data augmentation* Possibly helps, but pay attention to -- virtual example
+not the same distribution as $P(x,y)$. 
+
+* *Regularization* See in Section [#sec-regularization]
+* *Validation*   See in Section [#sec-validation]
+
+# Regularization {#sec-regularization}
+
+# Validation {#sec-validation}
+
+# Three Learning Principles
+
+
+
+~ End MainPanel
