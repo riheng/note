@@ -1,0 +1,83 @@
+Title         : PRIORITISING WATER PIPES FOR CONDITION ASSESSMENT WITH DATA ANALYTICS
+
+Author        : Riheng ZHU
+Affiliation   : 
+Email         : zrh0712@outlook.com
+
+Bibliography  : example.bib
+
+[INCLUDE=book]
+[INCLUDE=webtoc]
+[INCLUDE=webanchors]
+
+[TITLE]
+
+~ Begin SidePanel
+[TOC]
+~ End SidePanel
+
+~ Begin MainPanel
+
+This article propose two methods for prioristising critical water mains (**CWMs**):
+
+* an efficient and effective methods based on Bayesian nonpararametric  modeling 
+called **Hierarchical beta process (HBP)**
+* a risk-aversion method in terms of both failure probabilities and consequence 
+based on **Binary integer programming (BIP)**
+
+# Introduction     { #sec-intro }
+
+There are two kinds of water mains in a water supply network: reticulation water mains (small diameter pipes) and critical water mains (large diameter pipes).
+
+The development of models:
+
+1. **Physical and Mechanical Models** 
+    According to environmental conditions, pip wall thickness, quality of 
+    manufacturing, estimate the failuer likelihoods
+2. **Statistical Models**
+    Using historical failure data to predict failure probability. Including 
+    parametric and semi-parametric models
+3. **Machine Learning Models**
+    More flexible models as fewer assumption are needed. Including non-parameters 
+    models
+
+# Data Collection
+
+It is crucial to note that most (about 99%) pipes do not fail or fail just once 
+during the observation period.
+
+# Hierarchical beta process (HBP)
+
+Two factors that may significantly influence the failure prediction, which need to 
+be considered in the model HBP:
+
+* The failure rate does not always increse in direct correlation with age.
+* The sparseness of failures
+
+Comparing with the model **Weibull**, the advantage is that it avoids assumptions 
+of the structure of the model from the outset.
+
+# Binary integer programming (BIP)
+
+# Result
+## Risk maps
+
+~ Figure {#fig-HBP; caption: "Predicted top 5% most likely to fail pipes. Asterisks represent actual failures in 2012m correctly predicted by each method."}
+![results_HBP]
+~
+
+[results_HBP]: images/results_HBP.png "results_HBP" { width:auto; max-width:50% }
+
+
+## Practical Benefits
+
+~ Figure {#fig-length; caption: "Detection results for first 2.5% of all critical water mians. The horizontal axis represents the cumulative lenth of inspected water pipes, and the vertical axis represents the number of detected pipe failures"}
+![length_detected]
+~
+
+[length_detected]: images/length_detected.png "length_detected" { width:auto; max-width:50% }
+
+
+
+
+~ End MainPanel
